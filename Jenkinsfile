@@ -5,6 +5,9 @@ pipeline {
             steps {
                 script {
                     sh ' echo " building the playbook" '
+                    ls ' tree ' 
+                    sh ' ls '
+                    sh ' pwd '
                     sh ' ansible-playbook build_playbook.yml' 
                 }
             }
