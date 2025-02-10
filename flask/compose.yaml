@@ -1,0 +1,10 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+  web_2:
+    build: .
+    ports:
+      - "9090:5000"

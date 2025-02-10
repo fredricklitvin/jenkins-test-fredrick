@@ -1,0 +1,34 @@
+- name: create the work place
+  hosts: _slave
+  become: yes
+  tasks:
+    - name: get depend
+      dnf:
+        name: "{{ item }}"
+        state: latest
+      loop: 
+       - git
+       - docker
+       - java-17-amazon-corretto
+       - python3
+       - python3-pip
+    - name: get compose
+      shell: sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+    - name: change compose permission
+      shell: sudo chmod +x /usr/local/bin/docker-compose
+    - name: copy flask to slave
+      copy:
+        src: flask
+        dest: /tmp/
+    - name: start services
+      service:
+        name: "{{ item }}"
+        state: started
+        enabled: yes
+      loop:
+        - docker
+    - name: add ec2-user to docker group
+      shell: usermod -aG docker ec2-user
+    - name: reset the group
+      shell: newgrp docker
+      shell: echo "hi its over"
