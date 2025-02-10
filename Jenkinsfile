@@ -14,7 +14,7 @@ pipeline {
             agent { label 'slave' }
             script {
                 sh ' echo " build the container " '
-                sh ' sudo docker-compose build '
+                sh ' sudo docker-compose build /flask '
                 sh ' sudo docker-compose up -d '
             }
         }
