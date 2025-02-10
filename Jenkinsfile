@@ -14,7 +14,7 @@ pipeline {
         steps {
             script {
                 sh ' echo " build the container " '
-                dir("folder") {
+                dir("flask") {
                      sh ' sudo docker-compose build '
 
 }
