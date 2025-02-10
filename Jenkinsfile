@@ -5,8 +5,10 @@ pipeline {
             steps {
                 script {
                     sh ' echo " building the playbook" '
-                    sh ' tree ' 
-                    sh ' ls '
+                    sh ' dnf install python3'
+                    sh ' dnf install python3-pip'
+                    sh ' pip install boto3'
+                    sh ' pip install botocore'
                     sh ' pwd '
                     sh ' ansible-playbook build_playbook.yml' 
                 }
