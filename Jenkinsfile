@@ -5,7 +5,6 @@ pipeline {
             steps {
                 script {
                     sh ' echo " building the playbook" '
-                    sh ' su ec2-user '
                     sh ' ansible-playbook build_playbook.yml ' 
                 }
             }
