@@ -9,7 +9,6 @@ pipeline {
       sh 'bash install_ansible.sh'
   } catch (Exception e) {
       echo 'Exception occurred: ' + e.toString()
-      sh 'Handle the exception!'
   }
                     sh ' ansible-playbook build_playbook.yml  ' 
                     
