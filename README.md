@@ -10,3 +10,6 @@ whats needed!
 get ssh between the jenkins server and the prodaction server 
 create an iam role that will allow you to access the repo (or configure aws)
 and create the nodes based on the jenkinsfile
+
+
+i havent created the delete one sorry :(
