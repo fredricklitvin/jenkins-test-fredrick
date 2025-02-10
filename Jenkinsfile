@@ -10,7 +10,6 @@ pipeline {
             }
         }
      stage('build container') {
-        agent { label 'slave' }
         steps {
             script {
                 sh ' echo " build the container " '
@@ -24,7 +23,6 @@ pipeline {
     }     
 
     stage('test') {
-        agent { label 'slave' }
         steps {
             script {
                 sh ' echo " test " '
@@ -35,7 +33,6 @@ pipeline {
     }
 
         stage('deploy') {
-            agent { label 'slave' }
             steps {
                 script {
                     sh ' echo "deploy" '
