@@ -10,8 +10,8 @@ pipeline {
             }
         }
      stage('build container') {
+        agent { label 'slave' }
         steps {
-            agent { label 'slave' }
             script {
                 sh ' echo " build the container " '
                 sh ' sudo docker-compose build /flask '
