@@ -51,10 +51,4 @@ pipeline {
         }
     }
 
-        post { 
-        always { 
-            sh ' echo " removing docker " '
-           sh ' docker rm -f web '
-        }
-    }  
 }
