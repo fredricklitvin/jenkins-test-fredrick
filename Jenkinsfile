@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     sh ' echo " building the playbook" '
-                    sh ' ansible-playbook build_playbook.yml ' 
+                    #sh ' ansible-playbook build_playbook.yml ' 
                 }
             }
         }
@@ -15,6 +15,7 @@ pipeline {
             script {
                 sh ' echo " build the container " '
                 sh ' cd flask '
+                sh ' pwd '
                 sh ' sudo docker-compose build '
                 sh ' sudo docker-compose up -d '
             }
