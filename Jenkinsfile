@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     sh ' echo " building the playbook" '
-                    sh ' ansible-playbook build_playbook.yml ' 
+                    sh ' ansible-playbook build_playbook.yml -i localhost ' 
                     
                 }
             }
