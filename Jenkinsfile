@@ -6,7 +6,6 @@ pipeline {
                 script {
                     sh ' echo " building the playbook" '
                     sh ' pwd '
-                    sh ' ansible-inventory -i inventory/aws_ec2.yml --list '
                     sh ' ansible-playbook build_playbook.yml ' 
                 }
             }
