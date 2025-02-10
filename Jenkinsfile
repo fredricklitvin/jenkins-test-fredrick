@@ -14,15 +14,15 @@ pipeline {
         steps {
             script {
                 sh ' echo " build the container " '
-                sh ' sudo docker-compose build /flask '
+                sh ' sudo docker-compose build /flask/compose.yaml '
                 sh ' sudo docker-compose up -d '
             }
         }
     }     
 
     stage('test') {
+        agent { label 'slave' }
         steps {
-            agent { label 'slave' }
             script {
                 sh ' echo " test " '
                 sh ' curl  http://127.0.0.1:5000 '
@@ -32,8 +32,8 @@ pipeline {
     }
 
         stage('deploy') {
+            agent { label 'slave' }
             steps {
-                agent { label 'slave' }
                 script {
                     sh ' echo "deploy" '
                     sh ' aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 992382545251.dkr.ecr.us-east-1.amazonaws.com '               
