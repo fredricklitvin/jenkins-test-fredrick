@@ -5,12 +5,9 @@ pipeline {
             steps {
                 script {
                     sh ' echo " building the playbook" '
-                    sh ' dnf install python3'
-                    sh ' dnf install python3-pip'
-                    sh ' pip install boto3'
-                    sh ' pip install botocore'
                     sh ' pwd '
-                    sh ' ansible-playbook build_playbook.yml' 
+                    sh ' ansible-inventory -i inventory/aws_ec2.yml --list '
+                    sh ' ansible-playbook build_playbook.yml ' 
                 }
             }
         }
