@@ -14,7 +14,7 @@ pipeline {
         steps {
             script {
                 sh ' echo " build the container " '
-                sh ' sudo docker-compose build /flask/compose.yaml '
+                sh ' sudo docker-compose build flask/compose.yaml '
                 sh ' sudo docker-compose up -d '
             }
         }
