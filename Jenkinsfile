@@ -16,9 +16,9 @@ pipeline {
                 sh ' echo " build the container " '
                 dir("flask") {
                      sh ' sudo docker-compose build '
+                     sh ' sudo docker-compose up -d '
 
 }
-                sh ' sudo docker-compose up -d '
             }
         }
     }     
